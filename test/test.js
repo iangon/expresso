@@ -854,7 +854,7 @@ describe("PUT /api/employees/:employeeId/timesheets/:timesheetId", function() {
   });
 });
 
-xdescribe("DELETE /api/employees/:employeeId/timesheets/:timesheetId", function() {
+describe("DELETE /api/employees/:employeeId/timesheets/:timesheetId", function() {
   beforeEach(function(done) {
     seed.seedTimesheetDatabase(done);
   });
