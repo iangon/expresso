@@ -11,7 +11,7 @@ const seed = require("./seed.js");
 const prodDb = new sqlite3.Database("./database.sqlite");
 const testDb = new sqlite3.Database(process.env.TEST_DATABASE);
 
-describe("Employee Table", function() {
+xdescribe("Employee Table", function() {
   it("should exist", function(done) {
     prodDb.get(
       "SELECT name FROM sqlite_master WHERE type='table' AND name='Employee'",
@@ -131,7 +131,7 @@ describe("Employee Table", function() {
   });
 });
 
-describe("Timesheet Table", function() {
+xdescribe("Timesheet Table", function() {
   it("should exist", function(done) {
     prodDb.get(
       "SELECT name FROM sqlite_master WHERE type='table' AND name='Timesheet'",
@@ -246,7 +246,7 @@ describe("Timesheet Table", function() {
   });
 });
 
-describe("Menu Table", function() {
+xdescribe("Menu Table", function() {
   it("should exist", function(done) {
     prodDb.get(
       "SELECT name FROM sqlite_master WHERE type='table' AND name='Menu'",
@@ -291,7 +291,7 @@ describe("Menu Table", function() {
   });
 });
 
-describe("MenuItem Table", function() {
+xdescribe("MenuItem Table", function() {
   it("should exist", function(done) {
     prodDb.get(
       "SELECT name FROM sqlite_master WHERE type='table' AND name='MenuItem'",
@@ -406,7 +406,7 @@ describe("MenuItem Table", function() {
   });
 });
 
-describe("GET /api/employees", function() {
+xdescribe("GET /api/employees", function() {
   before(function(done) {
     seed.seedEmployeeDatabase(done);
   });
@@ -430,7 +430,7 @@ describe("GET /api/employees", function() {
   });
 });
 
-describe("GET /api/employees/:id", function() {
+xdescribe("GET /api/employees/:id", function() {
   before(function(done) {
     seed.seedEmployeeDatabase(done);
   });
@@ -461,7 +461,7 @@ describe("GET /api/employees/:id", function() {
   });
 });
 
-describe("POST /api/employees", function() {
+xdescribe("POST /api/employees", function() {
   let newEmployee;
 
   beforeEach(function(done) {
@@ -534,7 +534,7 @@ describe("POST /api/employees", function() {
   });
 });
 
-describe("PUT /api/employees/:id", function() {
+xdescribe("PUT /api/employees/:id", function() {
   let updatedEmployee;
 
   beforeEach(function(done) {
@@ -604,7 +604,7 @@ describe("PUT /api/employees/:id", function() {
   });
 });
 
-describe("DELETE /api/employees/:id", function() {
+xdescribe("DELETE /api/employees/:id", function() {
   beforeEach(function(done) {
     seed.seedEmployeeDatabase(done);
   });
@@ -645,7 +645,7 @@ describe("DELETE /api/employees/:id", function() {
   });
 });
 
-xdescribe("GET /api/employees/:employeeId/timesheets", function() {
+describe("GET /api/employees/:employeeId/timesheets", function() {
   before(function(done) {
     seed.seedTimesheetDatabase(done);
   });
@@ -757,7 +757,7 @@ xdescribe("POST /api/employees/:employeeId/timesheets", function() {
   });
 });
 
-xdescribe("PUT /api/employees/:employeeId/timesheets/:timesheetId", function() {
+describe("PUT /api/employees/:employeeId/timesheets/:timesheetId", function() {
   let updatedTimesheet;
 
   beforeEach(function(done) {
