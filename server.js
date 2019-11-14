@@ -1,8 +1,18 @@
 const express = require("express");
-const sqlite3 = require("sqlite3");
+const cors = require("cors");
+const errorHandler = require("errorhandler");
+const morgan = require("morgan");
+const bodyParser = require("body-parser");
 const app = express();
-const db = new sqlite3.Database("./database.sqlite");
-const PORT = process.env.TEST_DATABASE || 4000;
+const apiRouter = require("./api/api");
+
+const PORT = process.env.PORT || 4000;
+
+app.use(cors());
+app.use(errorHandler());
+app.use(morgan("dev"));
+app.use(bodyParser.json());
+app.use("/", apiRouter);
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);

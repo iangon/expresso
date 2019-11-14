@@ -11,7 +11,7 @@ db.run(`CREATE TABLE IF NOT EXISTS Employee (
 )`);
 
 // Timesheet Table
-db.run(`CREATE TABLE IF NOT EXISTS Employee (
+db.run(`CREATE TABLE IF NOT EXISTS Timesheet (
   id INTEGER PRIMARY KEY NOT NULL,
   hours INTEGER NOT NULL,
   rate INTEGER NOT NULL,
