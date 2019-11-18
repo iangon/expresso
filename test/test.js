@@ -246,7 +246,7 @@ xdescribe("Timesheet Table", function() {
   });
 });
 
-xdescribe("Menu Table", function() {
+describe("Menu Table", function() {
   it("should exist", function(done) {
     prodDb.get(
       "SELECT name FROM sqlite_master WHERE type='table' AND name='Menu'",
@@ -757,7 +757,7 @@ xdescribe("POST /api/employees/:employeeId/timesheets", function() {
   });
 });
 
-describe("PUT /api/employees/:employeeId/timesheets/:timesheetId", function() {
+xdescribe("PUT /api/employees/:employeeId/timesheets/:timesheetId", function() {
   let updatedTimesheet;
 
   beforeEach(function(done) {
@@ -854,7 +854,7 @@ describe("PUT /api/employees/:employeeId/timesheets/:timesheetId", function() {
   });
 });
 
-describe("DELETE /api/employees/:employeeId/timesheets/:timesheetId", function() {
+xdescribe("DELETE /api/employees/:employeeId/timesheets/:timesheetId", function() {
   beforeEach(function(done) {
     seed.seedTimesheetDatabase(done);
   });
@@ -942,7 +942,7 @@ xdescribe("GET /api/menus/:id", function() {
   });
 });
 
-xdescribe("POST /api/menus", function() {
+describe("POST /api/menus", function() {
   let newMenu;
 
   beforeEach(function(done) {
@@ -994,7 +994,7 @@ xdescribe("POST /api/menus", function() {
   });
 });
 
-xdescribe("PUT /api/menus/:id", function() {
+describe("PUT /api/menus/:id", function() {
   let updatedMenu;
 
   beforeEach(function(done) {
