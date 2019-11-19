@@ -994,7 +994,7 @@ describe("POST /api/menus", function() {
   });
 });
 
-describe("PUT /api/menus/:id", function() {
+xdescribe("PUT /api/menus/:id", function() {
   let updatedMenu;
 
   beforeEach(function(done) {
@@ -1053,7 +1053,7 @@ describe("PUT /api/menus/:id", function() {
   });
 });
 
-xdescribe("DELETE /api/menus/:id", function() {
+describe("DELETE /api/menus/:id", function() {
   beforeEach(function(done) {
     seed.seedMenuDatabase(() => seed.seedMenuItemDatabase(done));
   });
@@ -1145,7 +1145,7 @@ xdescribe("GET /api/menus/:menuId/menu-items", function() {
   });
 });
 
-xdescribe("POST /api/menus/:menuId/menu-items", function() {
+describe("POST /api/menus/:menuId/menu-items", function() {
   let newMenuItem;
 
   beforeEach(function(done) {
@@ -1216,7 +1216,7 @@ xdescribe("POST /api/menus/:menuId/menu-items", function() {
   });
 });
 
-xdescribe("PUT /api/menus/:menuId/menu-items/:menuItemId", function() {
+describe("PUT /api/menus/:menuId/menu-items/:menuItemId", function() {
   let updatedMenuItem;
 
   beforeEach(function(done) {
@@ -1303,7 +1303,7 @@ xdescribe("PUT /api/menus/:menuId/menu-items/:menuItemId", function() {
   });
 });
 
-xdescribe("DELETE /api/menus/:menuId/menu-items/:menuItemId", function() {
+describe("DELETE /api/menus/:menuId/menu-items/:menuItemId", function() {
   beforeEach(function(done) {
     seed.seedMenuItemDatabase(done);
   });

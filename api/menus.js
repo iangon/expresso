@@ -1,5 +1,6 @@
 const express = require("express");
 const menusRouter = express.Router({ mergeParams: true });
+const menuItemsRouter = require("./menuItems");
 const sqlite3 = require("sqlite3");
 const db = new sqlite3.Database(
   process.env.TEST_DATABASE || "./database.sqlite"
@@ -93,5 +94,30 @@ menusRouter.put("/:menuId", (req, res, next) => {
 // Deletes the menu with the supplied menu ID from the database if that menu has no related menu items. Returns a 204 response.
 // If the menu with the supplied menu ID has related menu items, returns a 400 response.
 // If a menu with the supplied menu ID doesn’t exist, returns a 404 response
+menusRouter.delete("/:menuId", (req, res, next) => {
+  const menuId = req.params.menuId;
+  const sql = `SELECT * FROM MenuItem WHERE menu_id = $menuId`;
+  const values = { $menuId: menuId };
 
+  db.get(sql, values, (err, menuItem) => {
+    if (err) {
+      next(err);
+    } else if (!menuItem) {
+      // delete menu from db
+      const deleteSql = `DELETE FROM Menu WHERE id = ${menuId}`;
+
+      db.run(deleteSql, err => {
+        if (err) {
+          next(err);
+        } else {
+          res.status(204).send();
+        }
+      });
+    } else {
+      res.status(400).send();
+    }
+  });
+});
+
+menusRouter.use("/:menuId/menu-items", menuItemsRouter);
 module.exports = menusRouter;
